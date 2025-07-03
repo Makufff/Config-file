@@ -17,8 +17,10 @@
       variant = "";
       layout = "us";
     };
-    displayManager.defaultSession = "hyprland";
   };
+  
+services.displayManager.defaultSession = "hyprland";
+
   services.displayManager = {
     sddm = {
       enable = true;
@@ -103,11 +105,7 @@
     enable = true;
     packages = [ pkgs.libsForQt5.kpmcore ];
   };
-  services.samba = {
-    enable = true;
-    securityType = "user";
-    openFirewall = true;
-  };
+  services.samba.settings.global.security = "user" ;
   services.printing.enable = true;
   services.hardware.openrgb.enable = true;
   services.ratbagd.enable = true;
