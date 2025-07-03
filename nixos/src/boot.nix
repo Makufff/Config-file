@@ -27,12 +27,7 @@
       configurationLimit = 10;
 	  gfxmodeBios = "2560x1440";
 	  gfxmodeEfi = "2560x1440";
-	  extraFiles = {
-        "dsdt.aml" = "${../patch/hpomen_acpi_patch.aml}";
-        # "dsdt.cpio" = "${./hpomen_acpi_patch.cpio}";
-      };
       extraConfig = ''''\n
-acpi /dsdt.aml
 GRUB_DEFAULT=saved
 GRUB_SAVEDEFAULT=true
 GRUB_GFXPAYLOAD_LINUX=keep
