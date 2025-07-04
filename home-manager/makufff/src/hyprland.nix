@@ -96,7 +96,7 @@
 				"eDP-1 , highres:120, auto, 1.0"
 			];
 			bind = [
-				"CTRL, ALT, T, exec, kitty"
+				"CTRL ALT, T, exec, kitty"
 				"$mod, escape, exec, pidof wleave || wleave -p layer-shell"
 				"CTRL ALT, L, exec, hyprlock"
 				"$mod, E, exec, xdg-open ~"
