@@ -13,5 +13,6 @@
 		# KWIN_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
 		LIBVA_DRIVER_NAME = "iHD";
 		KWIN_DRM_USE_MODIFIERS = "0";
+		PATH = "$HOME/.local/bin:${builtins.getEnv \"PATH\"}";
 	};
 }

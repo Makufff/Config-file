@@ -9,8 +9,6 @@
 		enableCompletion = true;
 		shellAliases = {
 			neofetch = "fastfetch";
-			"it-kmitl-vpn-start" = "$HOME/Config-file/assets/vpn/it-kmitl-vpn start";
-			"it-kmitl-vpn-stop" = "$HOME/Config-file/assets/vpn/it-kmitl-vpn stop";
 		};
 		oh-my-zsh = {
 			enable = true;

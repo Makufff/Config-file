@@ -149,6 +149,7 @@
 
 	home.file = {
 		".config/waybar".source = config.lib.file.mkOutOfStoreSymlink ../../assets/config/waybar;
+		".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ../../assets/config/lazynvim;
 	};
 
 	# https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
