@@ -96,23 +96,16 @@
 				"eDP-1 , highres:120, auto, 1.0"
 			];
 			bind = [
-				# Terminal
 				"CTRL, ALT, T, exec, kitty"
-				# Exit (temporary)
 				"$mod, escape, exec, pidof wleave || wleave -p layer-shell"
-				# Lockscreen
 				"CTRL ALT, L, exec, hyprlock"
-				# Application
 				"$mod, E, exec, xdg-open ~"
-				# Clipboard
 				"$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-				# Screenshot
 				"$mod, Print, exec, hyprshot -m region"
-				# Window
 				"$mod, C, killactive"
 				"$mod, M, fullscreen, 1"
-				"$mod, R, togglesplit,"
-				"$mod, P, pseudo,"
+				"$mod, R, togglesplit"
+				"$mod, P, pseudo"
 				"$mod SHIFT, P, pin"
 				"$mod SHIFT, M, fullscreen, 0"
 				"$mod, F, togglefloating"
@@ -122,10 +115,8 @@
 				"CTRL ALT, right, changegroupactive, f"
 				"CTRL ALT, left, changegroupactive, b"
 				"$mod, return, exec, rofi -show drun"
-				# Move to workspace
 				"$mod CTRL, left, workspace, r-1"
 				"$mod CTRL, right, workspace, r+1"
-				# Move window to workspace
 				"$mod, 1, workspace, 1"
 				"$mod, 2, workspace, 2"
 				"$mod, 3, workspace, 3"
@@ -146,29 +137,25 @@
 				"$mod SHIFT, 8, movetoworkspace, 8"
 				"$mod SHIFT, 9, movetoworkspace, 9"
 				"$mod SHIFT, 0, movetoworkspace, 10"
-				
 				"$mod, left, movefocus, l"
-				"$mod, left, bringactivetotop,"
+				"$mod, left, bringactivetotop"
 				"$mod, right, movefocus, r"
-				"$mod, right, bringactivetotop,"
+				"$mod, right, bringactivetotop"
 				"$mod, up, movefocus, u"
-				"$mod, up, bringactivetotop,"
+				"$mod, up, bringactivetotop"
 				"$mod, down, movefocus, d"
-				
 				"$mod, H, movefocus, l"
-				"$mod, H, bringactivetotop,"
+				"$mod, H, bringactivetotop"
 				"$mod, L, movefocus, r"
-				"$mod, L, bringactivetotop,"
+				"$mod, L, bringactivetotop"
 				"$mod, K, movefocus, u"
-				"$mod, K, bringactivetotop,"
+				"$mod, K, bringactivetotop"
 				"$mod, J, movefocus, d"
-				"$mod, J, bringactivetotop,"
-
-				# submaps
+				"$mod, J, bringactivetotop"
 				"ALT CTRL, escape, submap, passthrough"
 				"ALT, M, submap, movewindow"
 				"ALT, R, submap, resizewindow"
-			];
+				];
 			bindel = [
 				", XF86AudioRaiseVolume, exec, ~/.config/hypr/scripts/volume.sh raise"
 				", XF86AudioLowerVolume, exec, ~/.config/hypr/scripts/volume.sh lower"
