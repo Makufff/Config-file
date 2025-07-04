@@ -95,7 +95,6 @@
 		yazi
 		# Editors
 		#vscode-fhs
-		android-studio
 		# Media
 		mpv
 		obs-studio
@@ -114,7 +113,7 @@
 		# 	withVencord = true;
 		# })
 
-		irssi-v123
+		# irssi-v123
 		wireshark-qt
 		# teams-for-linux
 		slack
@@ -122,7 +121,6 @@
 		virt-manager
 		# Games
 		osu-lazer-bin-latest
-		prismlauncher-quacked
 		gamescope
 		godot_4
 		(lutris.override {

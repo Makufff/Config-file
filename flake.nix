@@ -39,11 +39,6 @@
       inputs.nixpkgs.follows = "nixpkgs"; # only useful for the package output
     };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    # sus
-    prismlauncher = {
-      url = "github:Diegiwg/PrismLauncher-Cracked";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -114,15 +109,6 @@
           # > Our main home-manager configuration file <
           stylix.homeModules.stylix
           ./home-manager/makufff/home.nix
-        ];
-      };
-      "guest@nixos" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          # > Our main home-manager configuration file <
-          stylix.homeModules.stylix
-          ./home-manager/guest/home.nix
         ];
       };
     };

@@ -91,10 +91,10 @@
 				#"WLR_NO_HARDWARE_CURSORS,1"
 				#"AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
 			];
-			#monitor = [
-			#	", highres, auto, auto"
-			#	"eDP-1 , highres:120, auto, 1.25"
-			#];
+			monitor = [
+				", highres, auto, auto"
+				"eDP-1 , highres:120, auto, 1.0"
+			];
 			bind = [
 				# Terminal
 				"CTRL ALT, T, exec, kitty"
@@ -259,7 +259,7 @@
 			];
 
 			image = {
-				path = "/home/airgeddon1337/.face";
+				path = "/home/makufff/.face";
 				# monitor = "eDP-1";
 				position = "0, 60";
 				rounding = -1;
