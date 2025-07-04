@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+# it-kmitl-vpn: Start/stop KMITL VPN using OpenVPN 3 and kmitl.ovpn
+# Usage:
+#   ./it-kmitl-vpn start   # Start VPN
+#   ./it-kmitl-vpn stop    # Stop VPN
+
+VPN_NAME="kmitl"
+OVPN_PATH="$(dirname "$0")/kmitl.ovpn"
+
+function start_vpn() {
+    if ! command -v openvpn3 &>/dev/null; then
+        echo "Error: openvpn3 is not installed."
+        exit 1
+    fi
+
+    if ! [ -f "$OVPN_PATH" ]; then
+        echo "Error: $OVPN_PATH not found."
+        exit 1
+    fi
+
+    # Check if already running
+    if openvpn3 sessions-list | grep -q "$VPN_NAME"; then
+        echo "VPN session '$VPN_NAME' is already running."
+        exit 0
+    fi
+
+    echo "Starting VPN session '$VPN_NAME'..."
+    openvpn3 session-start --config "$OVPN_PATH" --name "$VPN_NAME"
+}
+
+function stop_vpn() {
+    if ! command -v openvpn3 &>/dev/null; then
+        echo "Error: openvpn3 is not installed."
+        exit 1
+    fi
+
+    SESSION_PATH=$(openvpn3 sessions-list | awk -v name="$VPN_NAME" '
+        $0 ~ name {getline; if ($1 == "Path:") print $2}
+    ')
+
+    if [ -z "$SESSION_PATH" ]; then
+        echo "No running VPN session named '$VPN_NAME' found."
+        exit 0
+    fi
+
+    echo "Stopping VPN session '$VPN_NAME'..."
+    openvpn3 session-manage --session-path "$SESSION_PATH" --disconnect
+}
+
+case "$1" in
+    start)
+        start_vpn
+        ;;
+    stop)
+        stop_vpn
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+        ;;
+esac
