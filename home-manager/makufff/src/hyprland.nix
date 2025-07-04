@@ -97,7 +97,7 @@
 			];
 			bind = [
 				# Terminal
-				"CTRL, ALT, T, ENTER, exec, kitty"
+				"CTRL, ALT, T, exec, kitty"
 				# Exit (temporary)
 				"$mod, escape, exec, pidof wleave || wleave -p layer-shell"
 				# Lockscreen
