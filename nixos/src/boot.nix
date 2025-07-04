@@ -9,7 +9,7 @@
 	"nvidia-drm.fbdev=1"
 	#"nvidia.NVreg_EnableS0ixPowerManagement=1"
 	#"nvidia.NVreg_DynamicPowerManagement=0x02"
-        "acpi_backlight=native"
+  "acpi_backlight=native"
 	# "video.use_native_backlight=1"
 	# "i915.force_probe=a788"
 	# "i915.enable_psr=0"
@@ -30,10 +30,10 @@
 	  extraFiles = {
       };
       extraConfig = ''''\n
-GRUB_DEFAULT=saved
-GRUB_SAVEDEFAULT=true
-GRUB_GFXPAYLOAD_LINUX=keep
-'';
+        GRUB_DEFAULT=saved
+        GRUB_SAVEDEFAULT=true
+        GRUB_GFXPAYLOAD_LINUX=keep
+        '';
     };
   };
   boot.plymouth = {
@@ -55,8 +55,7 @@ GRUB_GFXPAYLOAD_LINUX=keep
 		"v4l2loopback"
 		"snd-aloop"
   ];
-  boot.blacklistedKernelModules = [
-  ];
+  boot.blacklistedKernelModules = [ ];
   boot.extraModulePackages = [
 	config.boot.kernelPackages.v4l2loopback.out
   ];
