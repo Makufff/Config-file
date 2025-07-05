@@ -6,7 +6,7 @@
 #   ./it-kmitl-vpn status  # Check VPN status
 
 VPN_NAME="kmitl"
-OVPN_PATH="$(dirname "$0")/kmitl.ovpn"
+OVPN_PATH="kmitl.ovpn"
 
 function start_vpn() {
     if ! command -v openvpn3 &>/dev/null; then
