@@ -17,9 +17,9 @@
       variant = "";
       layout = "us";
     };
-    displayManager.defaultSession = "hyprland";
   };
   services.displayManager = {
+    defaultSession = "hyprland";
     sddm = {
       enable = true;
       wayland.enable = true;
@@ -105,7 +105,11 @@
   };
   services.samba = {
     enable = true;
-    securityType = "user";
+    settings = {
+      global = {
+        security = "user";
+      };
+    };
     openFirewall = true;
   };
   services.printing.enable = true;
