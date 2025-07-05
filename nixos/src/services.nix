@@ -129,4 +129,15 @@
   systemd.sleep.extraConfig = ''
     DefaultTimeoutStopSec=5s
   '';
+
+   services.openvpn3 = {
+    enable = true;
+  };
+
+  systemd.services.openvpn3-session = {
+    enable = true;
+    wantedBy = [ "multi-user.target" ];
+  };
+
+  users.users.makufff.extraGroups = [ "openvpn" ];
 }
