@@ -59,6 +59,7 @@
 		nano
 		# Custom packages
 		openvpn3
+		
 		(sddm-theme.override {
 			themeConfig.General = {
 				background = "${config.stylix.image}";
