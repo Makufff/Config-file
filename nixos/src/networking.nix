@@ -2,7 +2,11 @@
   ...
 } : {
   networking = {
-	resloveconf.dnsExtensionMechanism = false;
+	
+	resloveconf = {
+		dnsExtensionMechanism = false;
+	};
+
     networkmanager = {
       enable = true;
     };
