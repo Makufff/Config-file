@@ -55,6 +55,10 @@
 		# Programming Language
 		python3
 		nodejs
+		pnpm
+		golangci-lint
+		gcc
+
 		# Default minimal text editor
 		nano
 		# Custom packages

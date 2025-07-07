@@ -140,6 +140,7 @@
 		noto-fonts-emoji
 		nerd-fonts.hack
 		nerd-fonts.fira-code
+		
 		# programming
 		poetry
 		nix-direnv
@@ -147,6 +148,8 @@
 		flutter
 
 		teams-for-linux
+		
+		youtube-music
 	];
 
 	home.file = {
