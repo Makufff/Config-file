@@ -146,6 +146,7 @@
 		# dart
 		flutter
 
+		teams-for-linux
 	];
 
 	home.file = {
