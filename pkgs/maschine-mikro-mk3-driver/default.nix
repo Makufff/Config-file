@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage rec {
 	cargoHash = "sha256-0jprYwd7KMTg3i71PcOZjqXV4WLcU4+c4mx4FnN/mNU=";
 	buildInputs = with pkgs; [
 		dbus
-		webkitgtk
+		webkitgtk_4_1
 		openssl
 		cargo
 		alsa-lib
