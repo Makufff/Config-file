@@ -2,20 +2,35 @@
 
 {
   networking = {
-    # ใช้ NetworkManager
-    networkmanager.enable = true;
+    # ตั้ง DNS ให้ชี้ไปที่ FortiGate (Gateway) ชั่วคราว
+    # แก้ให้เป็น IP Gateway ของคุณ เช่น 10.110.192.1
+    nameservers = [ "10.110.192.1" ];
 
-    # ไม่ตั้ง nameservers เอง ใช้ DNS จาก DHCP
-    # networking.nameservers = []; # ไม่ต้องใส่
+    # ใช้ NetworkManager จัดการเน็ตเวิร์ก
+    networkmanager = {
+      enable = true;
+      dns = "none";  # ปิด DHCP DNS เพื่อใช้ nameservers ด้านบน
 
-    # Firewall เปิดพอร์ตที่จำเป็น
-    firewall.enable = true;
-    firewall.allowedTCPPorts = [ 22 53 67 80 443 ];
-    firewall.allowedUDPPorts = [ 22 53 67 80 443 ];
-    firewall.allowedTCPPortRanges = [{ from = 1000; to = 65535; }];
-    firewall.allowedUDPPortRanges = [{ from = 1000; to = 65535; }];
+      extraConfig = ''
+        [main]
+        dns=none
 
-    # ตั้ง hostname ถ้าต้องการ
-    hostName = "nixos";
+        [ipv4]
+        ignore-auto-dns=true
+
+        [ipv6]
+        ignore-auto-dns=true
+      '';
+    };
+
+    firewall = {
+      enable = true;
+
+      allowedTCPPorts = [ 22 53 67 80 443 ];
+      allowedUDPPorts = [ 22 53 67 80 443 ];
+
+      allowedTCPPortRanges = [ { from = 1000; to = 65535; } ];
+      allowedUDPPortRanges = [ { from = 1000; to = 65535; } ];
+    };
   };
 }
