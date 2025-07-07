@@ -251,29 +251,33 @@
 			frame_timing=1;
 		};
 	};
+	
 	programs.vscode = {
-		enable = true;
-		mutableExtensionsDir = true;
-		package = pkgs.unstable.vscodium;
-		extensions = (with pkgs.nix-vscode-extensions; [
-			vscode-marketplace.leonardssh.vscord
-			# vscode-marketplace.ms-toolsai.jupyter
-			open-vsx.llvm-vs-code-extensions.vscode-clangd
-			open-vsx.medo64.render-crlf
-			open-vsx.jeanp413.open-remote-ssh
-			open-vsx.pinage404.nix-extension-pack
-			open-vsx.tomoki1207.pdf
-			open-vsx.ms-azuretools.vscode-docker
-			open-vsx.ms-toolsai.jupyter-renderers
-			open-vsx.ms-python.python
-		]);
-		userSettings = {
-			"editor.renderWhitespace" = "all";
-			"terminal.integrated.enablePersistentSessions" = false;
-			"nix.enableLanguageServer" = true;
-			"nix.serverPath" = "/run/current-system/sw/bin/nixd";
-			"notebook.lineNumbers" = "on";
-			"extensions.autoUpdate" = false;
-		};
-	};
+  enable = true;
+  mutableExtensionsDir = true;
+  package = pkgs.unstable.vscodium;
+  profiles.default = {
+    extensions = with pkgs.nix-vscode-extensions; [
+      vscode-marketplace.leonardssh.vscord
+      # vscode-marketplace.ms-toolsai.jupyter
+      open-vsx.llvm-vs-code-extensions.vscode-clangd
+      open-vsx.medo64.render-crlf
+      open-vsx.jeanp413.open-remote-ssh
+      open-vsx.pinage404.nix-extension-pack
+      open-vsx.tomoki1207.pdf
+      open-vsx.ms-azuretools.vscode-docker
+      open-vsx.ms-toolsai.jupyter-renderers
+      open-vsx.ms-python.python
+    ];
+
+    userSettings = {
+      "editor.renderWhitespace" = "all";
+      "terminal.integrated.enablePersistentSessions" = false;
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "/run/current-system/sw/bin/nixd";
+      "notebook.lineNumbers" = "on";
+      "extensions.autoUpdate" = false;
+    };
+  };
+};
 }
