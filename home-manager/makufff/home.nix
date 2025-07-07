@@ -146,7 +146,6 @@
 		# dart
 		flutter
 
-		zed-editor
 	];
 
 	home.file = {
