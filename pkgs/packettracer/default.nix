@@ -1,16 +1,17 @@
 { lib, stdenv, fetchurl, dpkg, qt5 }:
 
 stdenv.mkDerivation {
-  pname = 
-"packettracer";
+  pname = "packettracer";
   version = "8.2.2";
 
   src = fetchurl {
     url = "https://jarukrit.net/files/KMITL/Packet_Tracer822_amd64_signed.deb";
-    sha256 = "0bgplyi50m0dp1gfjgsgbh4dx2f01x44gp3gifnjqbgr3n4vilkc";
+    sha256 = "0v9m4lk4yjq1b0axl4zj74j7p3vvsqkjd2w13gsbnr91b84p1k76";
   };
 
   buildInputs = [ dpkg qt5.qtbase qt5.qtnetworkauth ];
+
+  nativeBuildInputs = [ qt5.wrapQtAppsHook ];
 
   unpackPhase = "true";
 
@@ -26,7 +27,6 @@ stdenv.mkDerivation {
     mkdir -p $out/bin
     cat > $out/bin/packettracer <<EOF
 #!/usr/bin/env bash
-export LD_LIBRARY_PATH=${qt5.qtbase}/lib:${qt5.qtnetworkauth}/lib:\$LD_LIBRARY_PATH
 exec $out/opt/pt/bin/PacketTracer7 "\$@"
 EOF
     chmod +x $out/bin/packettracer
