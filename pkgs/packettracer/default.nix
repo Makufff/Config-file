@@ -1,4 +1,4 @@
-{ lib, stdenv, dpkg, fetchurl }:
+{ lib, stdenv, fetchurl, dpkg }:
 
 stdenv.mkDerivation {
   pname = "packettracer";
@@ -6,7 +6,7 @@ stdenv.mkDerivation {
 
   src = fetchurl {
     url = "https://jarukrit.net/files/KMITL/Packet_Tracer822_amd64_signed.deb";
-    sha256 = "0bgplyi50m0dp1gfjgsgbh4dx2f01x44gp3gifnjqbgr3n4vilkc";
+    sha256 = "<put-correct-sha256>";
   };
 
   buildInputs = [ dpkg ];
@@ -20,17 +20,24 @@ stdenv.mkDerivation {
     mkdir -p $out
     cp -r $TMPDIR/unpack/* $out/
 
-    # แก้ perm ไฟล์ให้ sandbox ผ่าน
     chmod -R u+rwX,go+rX,go-w $out
 
-    # สร้าง .desktop file ใน $out
+    # Create wrapper in bin/
+    mkdir -p $out/bin
+    cat > $out/bin/packettracer <<EOF
+#!/usr/bin/env bash
+exec $out/opt/pt/bin/PacketTracer "\$@"
+EOF
+    chmod +x $out/bin/packettracer
+
+    # Create .desktop file
     mkdir -p $out/share/applications
     cat > $out/share/applications/packettracer.desktop <<EOF
 [Desktop Entry]
 Name=Cisco Packet Tracer
 Comment=Network simulation tool
-Exec=$out/usr/bin/PacketTracer
-Icon=$out/usr/share/icons/hicolor/256x256/apps/packettracer.png
+Exec=$out/bin/packettracer
+Icon=$out/opt/art/app.png
 Terminal=false
 Type=Application
 Categories=Education;Network;
