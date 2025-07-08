@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchurl, dpkg }:
+{ lib, stdenv, fetchurl, dpkg, qt5, qt5.qtnetworkauth }:
 
 stdenv.mkDerivation {
   pname = "packettracer";
@@ -9,7 +9,7 @@ stdenv.mkDerivation {
     sha256 = "0bgplyi50m0dp1gfjgsgbh4dx2f01x44gp3gifnjqbgr3n4vilkc";
   };
 
-  buildInputs = [ dpkg ];
+  buildInputs = [ dpkg qt5.qtbase qt5.qtnetworkauth ];
 
   unpackPhase = "true";
 
@@ -22,15 +22,14 @@ stdenv.mkDerivation {
 
     chmod -R u+rwX,go+rX,go-w $out
 
-    # Create wrapper in bin/
     mkdir -p $out/bin
     cat > $out/bin/packettracer <<EOF
 #!/usr/bin/env bash
-exec $out/opt/pt/bin/PacketTracer "\$@"
+export LD_LIBRARY_PATH=${qt5.qtbase}/lib:${qt5.qtnetworkauth}/lib:\$LD_LIBRARY_PATH
+exec $out/opt/pt/bin/PacketTracer7 "\$@"
 EOF
     chmod +x $out/bin/packettracer
 
-    # Create .desktop file
     mkdir -p $out/share/applications
     cat > $out/share/applications/packettracer.desktop <<EOF
 [Desktop Entry]
@@ -44,10 +43,10 @@ Categories=Education;Network;
 EOF
   '';
 
-  meta = {
+  meta = with lib; {
     description = "Cisco Packet Tracer";
     homepage = "https://www.netacad.com";
-    license = lib.licenses.unfree;
-    platforms = lib.platforms.linux;
+    license = licenses.unfree;
+    platforms = platforms.linux;
   };
 }
