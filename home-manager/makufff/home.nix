@@ -152,6 +152,8 @@
 		youtube-music
 
 		dbeaver-bin
+
+		ciscoPacketTracer8
 	];
 
 	home.file = {
