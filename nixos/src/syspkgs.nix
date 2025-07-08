@@ -64,7 +64,8 @@
 		# Custom packages
 		openvpn3
 
-		packettracer
+		# packettracer
+		ciscoPacketTracer8
 		qt5.qtbase
 		qt5.qtnetworkauth
 		
