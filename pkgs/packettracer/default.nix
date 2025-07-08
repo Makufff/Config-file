@@ -16,6 +16,10 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out/usr/bin
     dpkg -x $src $out
+
+    find $out -exec chmod u+rwX,go+rX,go-w {} +
+    find $out -exec chown root:root {} + || true
+
     mkdir -p $out/share/applications
     cat > $out/share/applications/packettracer.desktop <<EOF
   [Desktop Entry]
