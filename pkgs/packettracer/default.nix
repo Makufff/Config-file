@@ -17,7 +17,6 @@
 , libxslt
 , lndir
 , makeWrapper
-, makeDesktopItem
 , nspr
 , nss
 , xorg
@@ -118,6 +117,8 @@ EOF
       cp -r ${desktopItemPath}/share/applications/* "$out/share/applications/"
     '';
   };
+
+  # derivation หลัก
 in stdenv.mkDerivation {
   pname = "ciscoPacketTracer8";
   inherit version;
