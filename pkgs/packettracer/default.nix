@@ -9,7 +9,14 @@ stdenv.mkDerivation {
     sha256 = "0bgplyi50m0dp1gfjgsgbh4dx2f01x44gp3gifnjqbgr3n4vilkc";
   };
 
-  buildInputs = [ dpkg qt5.qtbase qt5.qtnetworkauth ];
+  buildInputs = [
+    dpkg
+    qt5.qtbase
+    qt5.qtnetworkauth
+    qt5.qttools
+    qt5.qtxml
+  ];
+
   nativeBuildInputs = [ qt5.wrapQtAppsHook ];
 
   dontUnpack = true;
@@ -28,7 +35,12 @@ stdenv.mkDerivation {
     wrapQtAppsHook
 
     wrapProgram $out/opt/pt/bin/PacketTracer \
-      --prefix LD_LIBRARY_PATH : ${qt5.qtbase}/lib:${qt5.qtnetworkauth}/lib:$out/opt/pt/lib
+      --prefix LD_LIBRARY_PATH : \
+        ${qt5.qtbase}/lib:\
+        ${qt5.qtnetworkauth}/lib:\
+        ${qt5.qttools}/lib:\
+        ${qt5.qtxml}/lib:\
+        $out/opt/pt/lib
 
     ln -s $out/opt/pt/bin/PacketTracer $out/bin/packettracer
 
