@@ -35,4 +35,12 @@
       config.allowUnfree = true;
     };
   };
+  
+  nixpkgs.overlays = [
+    (final: prev: {
+      packettracer8-patched = import ../pkgs/packettracer/default.nix {
+        inherit (final) stdenv fetchurl python3 autoPatchelfHook patchelf;
+      };
+    })
+  ];
 }
