@@ -10,26 +10,21 @@ stdenv.mkDerivation {
   };
 
   buildInputs = [ dpkg qt5.qtbase qt5.qtnetworkauth ];
-
   nativeBuildInputs = [ qt5.wrapQtAppsHook ];
 
-  unpackPhase = "true";
+  dontUnpack = true;
 
   installPhase = ''
     mkdir -p $TMPDIR/unpack
     dpkg -x $src $TMPDIR/unpack
 
-    mkdir -p $out
-    cp -r $TMPDIR/unpack/* $out/
+    mkdir -p $out/opt
+    cp -r $TMPDIR/unpack/opt/pt $out/opt/
 
-    chmod -R u+rwX,go+rX,go-w $out
+    chmod -R u+rwX,go+rX,go-w $out/opt/pt
 
     mkdir -p $out/bin
-    cat > $out/bin/packettracer <<EOF
-#!/usr/bin/env bash
-exec $out/opt/pt/bin/PacketTracer "\$@"
-EOF
-    chmod +x $out/bin/packettracer
+    ln -s $out/opt/pt/bin/PacketTracer7 $out/bin/packettracer
 
     mkdir -p $out/share/applications
     cat > $out/share/applications/packettracer.desktop <<EOF
@@ -37,12 +32,17 @@ EOF
 Name=Cisco Packet Tracer
 Comment=Network simulation tool
 Exec=$out/bin/packettracer
-Icon=$out/opt/art/app.png
+Icon=$out/opt/pt/art/app.png
 Terminal=false
 Type=Application
 Categories=Education;Network;
 EOF
   '';
+
+  # Make sure the PacketTracer binary is wrapped for Qt plugins/libs
+  qtWrapperArgs = [
+    "--prefix" "LD_LIBRARY_PATH" ":" "$out/opt/pt/lib"
+  ];
 
   meta = with lib; {
     description = "Cisco Packet Tracer";
