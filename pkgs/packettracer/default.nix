@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchurl, dpkg, qt5 }:
+{ lib, stdenv, fetchurl, dpkg, qt5, makeWrapper }:
 
 stdenv.mkDerivation {
   pname = "packettracer";
@@ -14,6 +14,7 @@ stdenv.mkDerivation {
     qt5.qtbase
     qt5.qtnetworkauth
     qt5.qttools
+    makeWrapper
   ];
 
   nativeBuildInputs = [ qt5.wrapQtAppsHook ];
@@ -33,14 +34,9 @@ stdenv.mkDerivation {
 
     wrapQtAppsHook
 
-    wrapProgram $out/opt/pt/bin/PacketTracer \
-      --prefix LD_LIBRARY_PATH : \
-        ${qt5.qtbase}/lib:\
-        ${qt5.qtnetworkauth}/lib:\
-        ${qt5.qttools}/lib:\
-        $out/opt/pt/lib
-
-    ln -s $out/opt/pt/bin/PacketTracer $out/bin/packettracer
+    makeWrapper $out/opt/pt/bin/PacketTracer $out/bin/packettracer \
+      --prefix LD_LIBRARY_PATH : ${qt5.qtbase}/lib:${qt5.qtnetworkauth}/lib:${qt5.qttools}/lib:$out/opt/pt/lib \
+      --set QT_PLUGIN_PATH ${qt5.qtbase}/plugins
 
     mkdir -p $out/share/applications
     cat > $out/share/applications/packettracer.desktop <<EOF
