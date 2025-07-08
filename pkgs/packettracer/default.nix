@@ -1,26 +1,34 @@
-{ lib
-, stdenv
-, dpkg
-, python3
-}:
+{
+  description = "Cisco Packet Tracer 8.2.2 patched from URL";
 
-stdenv.mkDerivation rec {
-  pname = "cisco-packet-tracer";
-  version = "8.2.2";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
 
-  # ให้ใส่ path nix store ที่ได้จาก nix-store --add-fixed
-  src = /nix/store/6hjgf7b5vg9nqa4hl150pxdcs8xf4i15-CiscoPacketTracer822_amd64_signed.deb;
+  outputs = { self, nixpkgs }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+    in
+    {
+      packages.${system}.ciscoPacketTracer8 = pkgs.stdenv.mkDerivation rec {
+        pname = "cisco-packet-tracer";
+        version = "8.2.2";
 
-  nativeBuildInputs = [ dpkg python3 ];
+        src = pkgs.fetchurl {
+          url = "https://jarukrit.net/files/KMITL/Packet_Tracer822_amd64_signed.deb";
+          sha256 = "0bgplyi50m0dp1gfjgsgbh4dx2f01x44gp3gifnjqbgr3n4vilkc"; 
+          # ตรวจสอบ hash ด้วยคำสั่ง nix hash เพื่อให้ถูกต้อง
+        };
 
-  unpackPhase = ''
-    mkdir unpack
-    dpkg-deb -x $src unpack
-    dpkg-deb --control $src unpack/DEBIAN
-  '';
+        nativeBuildInputs = [ pkgs.dpkg pkgs.python3 ];
 
-  buildPhase = ''
-    python3 - <<EOF
+        unpackPhase = ''
+          mkdir unpack
+          dpkg-deb -x $src unpack
+          dpkg-deb --control $src unpack/DEBIAN
+        '';
+
+        buildPhase = ''
+          python3 - <<EOF
 import os
 
 FIRST_JNZ_CHECK = 0x22265cb + 1
@@ -34,16 +42,19 @@ with open(binary_path, "r+b") as f:
     f.seek(SECOND_JNZ_CHECK)
     f.write(b"\\x84")
 EOF
-  '';
+        '';
 
-  installPhase = ''
-    mkdir -p $out
-    cp -r unpack/* $out/
-  '';
+        installPhase = ''
+          mkdir -p $out
+          cp -r unpack/* $out/
+        '';
 
-  meta = with lib; {
-    description = "Cisco Packet Tracer ${version} patched";
-    platforms = [ "x86_64-linux" ];
-    license = lib.licenses.free;
-  };
+        meta = with pkgs.lib; {
+          description = "Cisco Packet Tracer 8.2.2 patched (jnz->jz fix)";
+          homepage = "https://www.netacad.com/";
+          license = licenses.free;
+          platforms = platforms.linux;
+        };
+      };
+    };
 }
