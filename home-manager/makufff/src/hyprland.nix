@@ -296,13 +296,6 @@
 		};
 	};
 
-# sim
-	services.opensmtpd = {
-  enable = true;
-  hostname = "localhost";
-  listenAddresses = [ "127.0.0.1" ];
-};
-
   services.mako = {
     enable = true;
     settings = {

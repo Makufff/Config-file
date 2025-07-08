@@ -129,5 +129,11 @@
   systemd.sleep.extraConfig = ''
     DefaultTimeoutStopSec=5s
   '';
-
+  
+  # sim
+	services.opensmtpd = {
+  enable = true;
+  hostname = "localhost";
+  listenAddresses = [ "127.0.0.1" ];
+};
 }
