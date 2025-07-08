@@ -64,8 +64,8 @@
 		# Custom packages
 		openvpn3
 
-		# packettracer
-		ciscoPacketTracer8
+		packettracer
+		# ciscoPacketTracer8
 		# cisco-packet-tracer
 		
 		(sddm-theme.override {
