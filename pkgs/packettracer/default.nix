@@ -6,7 +6,7 @@ stdenv.mkDerivation {
 
   src = fetchurl {
     url = "https://jarukrit.net/files/KMITL/Packet_Tracer822_amd64_signed.deb";
-    sha256 = "0v9m4lk4yjq1b0axl4zj74j7p3vvsqkjd2w13gsbnr91b84p1k76";
+    sha256 = "0bgplyi50m0dp1gfjgsgbh4dx2f01x44gp3gifnjqbgr3n4vilkc";
   };
 
   buildInputs = [ dpkg ];
