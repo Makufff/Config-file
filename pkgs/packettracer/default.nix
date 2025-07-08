@@ -1,6 +1,6 @@
 { lib, stdenv }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "packettracer";
   version = "8.2.2";
 

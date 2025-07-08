@@ -153,7 +153,7 @@
 
 		dbeaver-bin
 
-		ciscoPacketTracer8
+		packettracer
 	];
 
 	home.file = {
