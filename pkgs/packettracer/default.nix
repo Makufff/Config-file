@@ -16,7 +16,10 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out
     dpkg -x $src $out
+    chmod -R u+rwX,go+rX,go-w $out
+    chown -R root:root $out || true
   '';
+
 
   meta = {
     description = "Cisco Packet Tracer";
