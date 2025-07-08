@@ -14,12 +14,19 @@ stdenv.mkDerivation {
   unpackPhase = "true";
 
   installPhase = ''
-    mkdir -p $out
+    mkdir -p $out/usr/bin
     dpkg -x $src $out
-    chmod -R u+rwX,go+rX,go-w $out
-    chown -R root:root $out || true
+    mkdir -p $out/share/applications
+    cat > $out/share/applications/packettracer.desktop <<EOF
+  [Desktop Entry]
+  Name=Cisco Packet Tracer
+  Exec=$out/usr/bin/PacketTracer
+  Icon=$out/usr/share/icons/packettracer.png
+  Terminal=false
+  Type=Application
+  Categories=Education;Network;
+  EOF
   '';
-
 
   meta = {
     description = "Cisco Packet Tracer";
