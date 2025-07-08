@@ -150,6 +150,8 @@
 		teams-for-linux
 		
 		youtube-music
+
+		dbeaver-bin
 	];
 
 	home.file = {

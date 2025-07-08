@@ -295,6 +295,13 @@
 			];
 		};
 	};
+
+	services.opensmtpd = {
+  enable = true;
+  hostname = "localhost";
+  listenAddresses = [ "127.0.0.1" ];
+};
+
   services.mako = {
     enable = true;
     settings = {
@@ -311,7 +318,7 @@
 			border-color = "#879a9c";
 			default-timeout = 7000;
 		};
-		"urgency=normal" = {
+		"urgency=normal" = {services
 			border-color = "#b0cfd1";
 			default-timeout = 10000;
 		};
