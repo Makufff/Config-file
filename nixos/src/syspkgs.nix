@@ -63,6 +63,10 @@
 		nano
 		# Custom packages
 		openvpn3
+
+		packettracer
+		qt5.qtbase
+		qt5.qtnetworkauth
 		
 		(sddm-theme.override {
 			themeConfig.General = {
