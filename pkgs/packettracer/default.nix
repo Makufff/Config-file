@@ -14,7 +14,6 @@ stdenv.mkDerivation {
     qt5.qtbase
     qt5.qtnetworkauth
     qt5.qttools
-    qt5.qtxml
   ];
 
   nativeBuildInputs = [ qt5.wrapQtAppsHook ];
@@ -39,7 +38,6 @@ stdenv.mkDerivation {
         ${qt5.qtbase}/lib:\
         ${qt5.qtnetworkauth}/lib:\
         ${qt5.qttools}/lib:\
-        ${qt5.qtxml}/lib:\
         $out/opt/pt/lib
 
     ln -s $out/opt/pt/bin/PacketTracer $out/bin/packettracer
