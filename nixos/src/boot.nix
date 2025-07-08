@@ -54,6 +54,7 @@
 		"nvidia_drm"
 		"v4l2loopback"
 		"snd-aloop"
+    "r8169"
   ];
   boot.blacklistedKernelModules = [ ];
   boot.extraModulePackages = [
