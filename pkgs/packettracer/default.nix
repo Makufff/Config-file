@@ -1,7 +1,8 @@
-{ lib, stdenv, fetchurl, dpkg, qt5, qt5.qtnetworkauth }:
+{ lib, stdenv, fetchurl, dpkg, qt5 }:
 
 stdenv.mkDerivation {
-  pname = "packettracer";
+  pname = 
+"packettracer";
   version = "8.2.2";
 
   src = fetchurl {
