@@ -296,6 +296,7 @@
 		};
 	};
 
+# sim
 	services.opensmtpd = {
   enable = true;
   hostname = "localhost";
@@ -318,7 +319,7 @@
 			border-color = "#879a9c";
 			default-timeout = 7000;
 		};
-		"urgency=normal" = {services
+		"urgency=normal" = {
 			border-color = "#b0cfd1";
 			default-timeout = 10000;
 		};
