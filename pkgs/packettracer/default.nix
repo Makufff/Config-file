@@ -24,6 +24,12 @@ stdenv.mkDerivation {
     chmod -R u+rwX,go+rX,go-w $out/opt/pt
 
     mkdir -p $out/bin
+
+    wrapQtAppsHook
+
+    wrapProgram $out/opt/pt/bin/PacketTracer \
+      --prefix LD_LIBRARY_PATH : ${qt5.qtbase.lib}/lib:${qt5.qtnetworkauth.lib}/lib:$out/opt/pt/lib
+
     ln -s $out/opt/pt/bin/PacketTracer $out/bin/packettracer
 
     mkdir -p $out/share/applications
@@ -38,11 +44,6 @@ Type=Application
 Categories=Education;Network;
 EOF
   '';
-
-  # Make sure the PacketTracer binary is wrapped for Qt plugins/libs
-  qtWrapperArgs = [
-    "--prefix" "LD_LIBRARY_PATH" ":" "$out/opt/pt/lib"
-  ];
 
   meta = with lib; {
     description = "Cisco Packet Tracer";
