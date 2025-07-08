@@ -28,7 +28,7 @@ stdenv.mkDerivation {
     wrapQtAppsHook
 
     wrapProgram $out/opt/pt/bin/PacketTracer \
-      --prefix LD_LIBRARY_PATH : ${qt5.qtbase.lib}/lib:${qt5.qtnetworkauth.lib}/lib:$out/opt/pt/lib
+      --prefix LD_LIBRARY_PATH : ${qt5.qtbase}/lib:${qt5.qtnetworkauth}/lib:$out/opt/pt/lib
 
     ln -s $out/opt/pt/bin/PacketTracer $out/bin/packettracer
 
