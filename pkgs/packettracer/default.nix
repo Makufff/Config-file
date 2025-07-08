@@ -2,9 +2,10 @@
 , lib
 , alsa-lib
 , autoPatchelfHook
-, buildFHSUserEnvBubblewrap
+, buildFHSEnvBubblewrap
 , dpkg
 , expat
+, fetchurl
 , fontconfig
 , glib
 , libdrm
@@ -15,12 +16,13 @@
 , libxml2
 , libxslt
 , lndir
-, makeDesktopItem
 , makeWrapper
+, makeDesktopItem
 , nspr
 , nss
 , xorg
-, fetchurl
+, wayland
+, wayland-protocols
 , copyDesktopItems
 }:
 
@@ -54,6 +56,8 @@ let
       makeWrapper
       nspr
       nss
+      wayland
+      wayland-protocols
     ] ++ (with xorg; [
       libICE
       libSM
@@ -102,7 +106,7 @@ EOF
     '';
   };
 
-  fhs = buildFHSUserEnvBubblewrap {
+  fhs = buildFHSEnvBubblewrap {
     name = "packettracer8";
     runScript = "${ptFiles}/bin/packettracer";
     targetPkgs = pkgs: [
