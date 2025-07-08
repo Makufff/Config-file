@@ -27,7 +27,7 @@ stdenv.mkDerivation {
     mkdir -p $out/bin
     cat > $out/bin/packettracer <<EOF
 #!/usr/bin/env bash
-exec $out/opt/pt/bin/PacketTracer7 "\$@"
+exec $out/opt/pt/bin/PacketTracer "\$@"
 EOF
     chmod +x $out/bin/packettracer
 
