@@ -24,7 +24,7 @@ stdenv.mkDerivation {
     chmod -R u+rwX,go+rX,go-w $out/opt/pt
 
     mkdir -p $out/bin
-    ln -s $out/opt/pt/bin/PacketTracer7 $out/bin/packettracer
+    ln -s $out/opt/pt/bin/PacketTracer $out/bin/packettracer
 
     mkdir -p $out/share/applications
     cat > $out/share/applications/packettracer.desktop <<EOF
