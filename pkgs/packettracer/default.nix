@@ -1,10 +1,12 @@
-{ lib, stdenv }:
+{ lib, stdenv, dpkg }:
 
 stdenv.mkDerivation {
   pname = "packettracer";
   version = "8.2.2";
 
-  src = ./source/Packet_Tracer822_amd64_signed.deb;
+  src = ./sources/Packet_Tracer822_amd64_signed.deb;
+
+  buildInputs = [ dpkg ];
 
   unpackPhase = "true";
 
