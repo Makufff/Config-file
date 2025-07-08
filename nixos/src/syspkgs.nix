@@ -65,8 +65,8 @@
 		openvpn3
 
 		# packettracer
-		# ciscoPacketTracer8
-		cisco-packet-tracer
+		ciscoPacketTracer8
+		# cisco-packet-tracer
 		
 		(sddm-theme.override {
 			themeConfig.General = {
