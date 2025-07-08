@@ -1,62 +1,139 @@
-{ lib, stdenv, fetchurl, dpkg, qt5, makeWrapper }:
+{ stdenv
+, lib
+, alsa-lib
+, autoPatchelfHook
+, buildFHSUserEnvBubblewrap
+, dpkg
+, expat
+, fontconfig
+, glib
+, libdrm
+, libglvnd
+, libpulseaudio
+, libudev0-shim
+, libxkbcommon
+, libxml2
+, libxslt
+, lndir
+, makeDesktopItem
+, makeWrapper
+, nspr
+, nss
+, xorg
+, fetchurl
+, copyDesktopItems
+}:
 
-stdenv.mkDerivation {
-  pname = "packettracer";
+let
   version = "8.2.2";
 
-  src = fetchurl {
-    url = "https://jarukrit.net/files/KMITL/Packet_Tracer822_amd64_signed.deb";
-    sha256 = "0bgplyi50m0dp1gfjgsgbh4dx2f01x44gp3gifnjqbgr3n4vilkc";
+  ptFiles = stdenv.mkDerivation {
+    pname = "PacketTracer8Drv";
+    inherit version;
+
+    dontUnpack = true;
+    src = fetchurl {
+      url = "https://jarukrit.net/files/KMITL/Packet_Tracer822_amd64_signed.deb";
+      sha256 = "0bgplyi50m0dp1gfjgsgbh4dx2f01x44gp3gifnjqbgr3n4vilkc";
+    };
+
+    nativeBuildInputs = [
+      alsa-lib
+      autoPatchelfHook
+      dpkg
+      expat
+      fontconfig
+      glib
+      libdrm
+      libglvnd
+      libpulseaudio
+      libudev0-shim
+      libxkbcommon
+      libxml2
+      libxslt
+      makeWrapper
+      nspr
+      nss
+    ] ++ (with xorg; [
+      libICE
+      libSM
+      libX11
+      libxcb
+      libXcomposite
+      libXcursor
+      libXdamage
+      libXext
+      libXfixes
+      libXi
+      libXrandr
+      libXrender
+      libXScrnSaver
+      libXtst
+      xcbutilimage
+      xcbutilkeysyms
+      xcbutilrenderutil
+      xcbutilwm
+    ]);
+
+    installPhase = ''
+      dpkg-deb -x $src $out
+      chmod 755 "$out"
+      makeWrapper "$out/opt/pt/bin/PacketTracer" "$out/bin/packettracer" \
+        --prefix LD_LIBRARY_PATH : "$out/opt/pt/bin"
+      ln -s $src $out/usr/share/
+    '';
   };
 
-  buildInputs = [
-    dpkg
-    qt5.qtbase
-    qt5.qtnetworkauth
-    qt5.qttools
-    qt5.qtx11extras
-    qt5.qtdeclarative
-    makeWrapper
-  ];
+  desktopItemPath = stdenv.mkDerivation {
+    name = "cisco-packettracer-desktop";
+    buildCommand = ''
+      mkdir -p $out/share/applications
+      cat > $out/share/applications/cisco-pt8.desktop <<EOF
+[Desktop Entry]
+Name=Cisco Packet Tracer 8
+Comment=Network simulation tool from Cisco
+Exec=packettracer %f
+Icon=${ptFiles}/opt/pt/art/app.png
+Terminal=false
+Type=Application
+MimeType=application/x-pkt;application/x-pka;application/x-pkz;
+Categories=Education;Network;
+EOF
+    '';
+  };
 
-  nativeBuildInputs = [ qt5.wrapQtAppsHook ];
+  fhs = buildFHSUserEnvBubblewrap {
+    name = "packettracer8";
+    runScript = "${ptFiles}/bin/packettracer";
+    targetPkgs = pkgs: [
+      libudev0-shim
+    ];
+
+    extraInstallCommands = ''
+      mkdir -p "$out/share/applications"
+      cp -r ${desktopItemPath}/share/applications/* "$out/share/applications/"
+    '';
+  };
+in stdenv.mkDerivation {
+  pname = "ciscoPacketTracer8";
+  inherit version;
 
   dontUnpack = true;
 
+  nativeBuildInputs = [ copyDesktopItems lndir ];
+
   installPhase = ''
-    mkdir -p $TMPDIR/unpack
-    dpkg -x $src $TMPDIR/unpack
-
-    mkdir -p $out/opt
-    cp -r $TMPDIR/unpack/opt/pt $out/opt/
-
-    chmod -R u+rwX,go+rX,go-w $out/opt/pt
-
-    mkdir -p $out/bin
-
-    wrapQtAppsHook
-
-    makeWrapper $out/opt/pt/bin/PacketTracer $out/bin/packettracer \
-      --prefix LD_LIBRARY_PATH :${qt5.qtbase}/lib:${qt5.qtnetworkauth}/lib:${qt5.qttools}/lib:${qt5.qtx11extras}/lib:${qt5.qtdeclarative}/lib:$out/opt/pt/lib \
-      --set QT_PLUGIN_PATH ${qt5.qtbase}/plugins
-
-    mkdir -p $out/share/applications
-    cat > $out/share/applications/packettracer.desktop <<EOF
-[Desktop Entry]
-Name=Cisco Packet Tracer
-Comment=Network simulation tool
-Exec=$out/bin/packettracer
-Icon=$out/opt/pt/art/app.png
-Terminal=false
-Type=Application
-Categories=Education;Network;
-EOF
+    mkdir -p $out
+    ${lndir}/bin/lndir -silent ${fhs} $out
   '';
 
+  desktopItems = [ desktopItemPath ];
+
   meta = with lib; {
-    description = "Cisco Packet Tracer";
-    homepage = "https://www.netacad.com";
+    description = "Network simulation tool from Cisco";
+    homepage = "https://www.netacad.com/courses/packet-tracer";
     license = licenses.unfree;
-    platforms = platforms.linux;
+    maintainers = with maintainers; [ lucasew ];
+    platforms = [ "x86_64-linux" ];
   };
 }
