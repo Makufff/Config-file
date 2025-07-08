@@ -87,15 +87,22 @@ let
     '';
   };
 
+  # สร้าง .desktop พร้อม Exec ที่เป็น path เต็มแบบ dynamic (ใช้ postInstallPhase)
   desktopItemPath = stdenv.mkDerivation {
     name = "cisco-packettracer-desktop";
-    buildCommand = ''
+
+    phases = [ "installPhase" ];
+
+    installPhase = ''
       mkdir -p $out/share/applications
+      # Path เต็มของ binary packettracer ใน output ptFiles
+      execPath="${ptFiles}/bin/packettracer"
+
       cat > $out/share/applications/cisco-pt8.desktop <<EOF
 [Desktop Entry]
 Name=Cisco Packet Tracer 8
 Comment=Network simulation tool from Cisco
-Exec=packettracer %f
+Exec=$execPath %f
 Icon=${ptFiles}/opt/pt/art/app.png
 Terminal=false
 Type=Application
@@ -118,7 +125,6 @@ EOF
     '';
   };
 
-  # derivation หลัก
 in stdenv.mkDerivation {
   pname = "ciscoPacketTracer8";
   inherit version;
