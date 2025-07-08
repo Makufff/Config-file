@@ -131,9 +131,9 @@
   '';
   
   # sim
-	services.opensmtpd = {
+  services.opensmtpd = {
   enable = true;
-  hostname = "localhost";
   listenAddresses = [ "127.0.0.1" ];
 };
+
 }
