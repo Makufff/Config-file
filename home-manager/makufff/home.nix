@@ -154,7 +154,7 @@
 		dbeaver-bin
 
 		# packettracer
-		packettracer8-patched
+		# packettracer8-patched
 	];
 
 	home.file = {
