@@ -155,7 +155,8 @@
 
 		# packettracer
 		# packettracer8-patched
-		cisco-packet-tracer
+		# cisco-packet-tracer
+		ciscoPacketTracer8
 	];
 
 	home.file = {
