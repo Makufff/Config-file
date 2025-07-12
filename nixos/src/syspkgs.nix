@@ -67,6 +67,8 @@
 		packettracer
 		# ciscoPacketTracer8
 		# cisco-packet-tracer
+
+		code-cursor
 		
 		(sddm-theme.override {
 			themeConfig.General = {
