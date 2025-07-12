@@ -158,7 +158,7 @@
 		# cisco-packet-tracer
 		# ciscoPacketTracer8
 
-		rPackages.RobLox
+		Wine
 	];
 
 	home.file = {
