@@ -158,7 +158,8 @@
 		# cisco-packet-tracer
 		# ciscoPacketTracer8
 
-		Wine
+		wine64
+		grapejuice
 	];
 
 	home.file = {
