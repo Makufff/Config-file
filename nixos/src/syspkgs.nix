@@ -64,19 +64,15 @@
 		# Custom packages
 		openvpn3
 
-<<<<<<< HEAD
-		packettracer
+		# packettracer
 		# ciscoPacketTracer8
 		# cisco-packet-tracer
 
 		code-cursor
-=======
 		# packettracer
 		ciscoPacketTracer8
 		qt5.qtbase
 		qt5.qtnetworkauth
->>>>>>> parent of 6780c93 (easy install cisco)
-		
 		(sddm-theme.override {
 			themeConfig.General = {
 				background = "${config.stylix.image}";
