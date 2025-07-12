@@ -157,6 +157,8 @@
 		# packettracer8-patched
 		# cisco-packet-tracer
 		# ciscoPacketTracer8
+
+		rPackages.RobLox
 	];
 
 	home.file = {
