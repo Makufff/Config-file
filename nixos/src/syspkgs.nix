@@ -64,10 +64,6 @@
 		# Custom packages
 		openvpn3
 
-		# packettracer
-		# ciscoPacketTracer8
-		# cisco-packet-tracer
-
 		code-cursor
 		# packettracer
 		ciscoPacketTracer8
