@@ -18,6 +18,7 @@
 	# 	enableExtensionPack = true;
 	# };
  #  };
+	virtualisation.docker.extraOptions = "--dns 8.8.8.8 --dns 1.1.1.1";
   virtualisation.docker.rootless = {
     enable = true;
     setSocketVariable = true;
