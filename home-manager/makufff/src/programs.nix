@@ -97,6 +97,16 @@
         ChatGPT-nvim
       ];
       extraConfig = ''
+        """
+        ___ ___   ____  __  _  __ __  _____  _____  _____ 
+        |   |   | /    ||  |/ ]|  |  ||     ||     ||     |
+        | _   _ ||  o  ||  ' / |  |  ||   __||   __||   __|
+        |  \_/  ||     ||    \ |  |  ||  |_  |  |_  |  |_  
+        |   |   ||  _  ||     ||  :  ||   _] |   _] |   _] 
+        |   |   ||  |  ||  .  ||     ||  |   |  |   |  |   
+        |___|___||__|__||__|\_| \__,_||__|   |__|   |__|   
+
+        """
         set       smartindent
         set       noexpandtab
         set       tabstop=4
@@ -285,13 +295,6 @@
         vim.keymap.set("n", "<leader>nh", ":Neotree ~/<CR>", { desc = "find in home" })
         vim.keymap.set("n", "<leader>nn", ":Neotree ./", { desc = "move to" })
         vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>", { desc = "Neotree" })
-
-        require("42header").setup({
-          default_map = true,
-          auto_update = false,
-          user = "knakto",
-          mail = "knakto@student.42bangkok.com",
-        })
 
         function ManUnderCursor()
           local word = vim.fn.expand("<cword>")
