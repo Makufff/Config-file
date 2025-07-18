@@ -41,13 +41,6 @@
       theme = "my-rainbow";
       background-opacity = 0.85;
       unfocused-split-opacity = 0.7;
-      padding-x = 12;
-      padding-y = 8;
-      cursor-shape = "beam";
-      cursor-color = "ffb86c";
-      bell = "off";
-      scrollback = 5000;
-      window-theme = "dark";
       keybind = [
         "ctrl+shift+c=copy_to_clipboard"
         "ctrl+shift+v=paste_from_clipboard"
@@ -58,6 +51,15 @@
         "ctrl+shift+minus=decrease_font_size"
         "ctrl+shift+0=reset_font_size"
       ];
+      extraConfig = ''
+        padding-x=12
+        padding-y=8
+        cursor-shape=beam
+        cursor-color=ffb86c
+        bell=off
+        scrollback=5000
+        window-theme=dark
+      '';
     };
     themes = {
       my-rainbow = {
