@@ -33,11 +33,11 @@
   # Remove kitty terminal, add ghostty
   programs.ghostty = {
     enable = true;
-    # Ghostty config is much simpler; you can add more options as needed
     settings = {
-      font = "FiraCode Nerd Font Mono Reg:size=12";
-      background = "#060908";
-      opacity = 0.65;
+      font-size = 12;
+      font-family = "FiraCode Nerd Font Mono Reg";
+      unfocused-split-opacity = 0.65;
+      # You can add more settings as needed, see https://ghostty.org/docs/config/reference
     };
     package = pkgs.unstable.ghostty;
   };
