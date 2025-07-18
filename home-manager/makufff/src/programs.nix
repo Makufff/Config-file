@@ -1,37 +1,34 @@
 { pkgs, lib, ... }:
 
 {
-	pkgs,
-	...
-}: {
   # Enable home-manager and git
-	programs.home-manager.enable = true;
-	programs.zsh = {
-		enable = true;
-		enableCompletion = true;
-		shellAliases = {
-			neofetch = "fastfetch";
-		};
-		initExtra = ''
-			function it-kmitl() {
-				case "$1" in
-					start)
-						sudo systemctl start openvpn-kmitl ;;
-					stop)
-						sudo systemctl stop openvpn-kmitl ;;
-					status)
-						sudo systemctl status openvpn-kmitl ;;
-					*)
-						echo "Usage: it-kmitl {start|stop|status}" ;;
-				esac
-			}
-		'';
-		oh-my-zsh = {
-			enable = true;
-			plugins = [ "git" "sudo" "docker" "kubectl" ];
-			theme = "agnoster";
-		};
-	};
+  programs.home-manager.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    shellAliases = {
+      neofetch = "fastfetch";
+    };
+    initExtra = ''
+      function it-kmitl() {
+        case "$1" in
+          start)
+            sudo systemctl start openvpn-kmitl ;;
+          stop)
+            sudo systemctl stop openvpn-kmitl ;;
+          status)
+            sudo systemctl status openvpn-kmitl ;;
+          *)
+            echo "Usage: it-kmitl {start|stop|status}" ;;
+        esac
+      }
+    '';
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "sudo" "docker" "kubectl" ];
+      theme = "agnoster";
+    };
+  };
   # Remove kitty terminal, add ghostty
   programs.ghostty = {
     enable = true;
@@ -45,7 +42,7 @@
       unfocused-split-opacity = 0.7;
     };
   };
-	programs.neovim =
+  programs.neovim =
     {
       enable = true;
       defaultEditor = true;
@@ -316,7 +313,7 @@ EOF
       '';
       vimAlias = true;
     };
-	programs.fastfetch = {
+  programs.fastfetch = {
 		enable = true;
 		settings = {
 			logo = {
@@ -405,4 +402,3 @@ EOF
     };
   };
 };
-}
