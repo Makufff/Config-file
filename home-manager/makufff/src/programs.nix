@@ -30,26 +30,17 @@
 			theme = "agnoster";
 		};
 	};
-	programs.kitty = {
-		enable = true;
-		extraConfig = ''
-			font_family					FiraCode Nerd Font Mono Reg
-			tab_bar_style				powerline
-			tab_separator				angle
-			tab_activity_symbol			"◉ "
-			bell_on_tab					" 󰂚"
-			tab_title_template			"{index} {title[title.rfind('/')+1:]}{bell_symbol}"
-			enable_audio_bell			false
-			background					#060908
-			background_opacity			0.65
-			dynamic_background_opacity	yes
-			map ctrl+shift+0			change_font_size all 0
-			map kitty_mod+t				new_tab_with_cwd
-			map kitty_mod+n				new_os_window_with_cwd
-			map kitty_mod+enter			new_window_with_cwd
-		'';
-		package = pkgs.unstable.kitty;
-	};
+  # Remove kitty terminal, add ghostty
+  programs.ghostty = {
+    enable = true;
+    # Ghostty config is much simpler; you can add more options as needed
+    settings = {
+      font = "FiraCode Nerd Font Mono Reg:size=12";
+      background = "#060908";
+      opacity = 0.65;
+    };
+    package = pkgs.unstable.ghostty;
+  };
 	programs.neovim =
 	let
 		toLua = str: "lua << EOF\n${str}\nEOF\n";
