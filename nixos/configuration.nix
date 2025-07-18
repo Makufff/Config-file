@@ -141,4 +141,6 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   documentation.dev.enable = true;
   system.stateVersion = "25.05";
+  # Disable KDE Wallet
+  services.kwallet.enable = false;
 }
