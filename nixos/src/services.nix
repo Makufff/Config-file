@@ -115,6 +115,7 @@
   services.printing.enable = true;
   services.hardware.openrgb.enable = true;
   services.ratbagd.enable = true;
+  services.openvpn3.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
   systemd.services.disable-usb-wakeup = {
     description = "Disable USB wakeups (XHCI)";
