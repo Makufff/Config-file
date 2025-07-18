@@ -36,38 +36,11 @@
     package = pkgs.unstable.ghostty;
     settings = {
       font-family = "JetBrainsMono Nerd Font";
-      font-size = 16;
+      font-size = 14;
       font-feature = [ "-liga" "-dlig" "-calt" ];
-      theme = "my-rainbow";
+      theme = "hyde";
       background-opacity = 0.85;
       unfocused-split-opacity = 0.7;
-    };
-    themes = {
-      my-rainbow = {
-        background = "181825";
-        foreground = "ffffff";
-        cursor-color = "ffb86c";
-        palette = [
-          "0=#ff0000" # red
-          "1=#ff7f00" # orange
-          "2=#ffff00" # yellow
-          "3=#00ff00" # green
-          "4=#0000ff" # blue
-          "5=#4b0082" # indigo
-          "6=#9400d3" # violet
-          "7=#ffffff" # white
-          "8=#ff69b4" # pink
-          "9=#00ffff" # cyan
-          "10=#00ff7f" # spring green
-          "11=#ffd700" # gold
-          "12=#1e90ff" # dodger blue
-          "13=#ff1493" # deep pink
-          "14=#7cfc00" # lawn green
-          "15=#f5f5f5" # white smoke
-        ];
-        selection-background = "353749";
-        selection-foreground = "cdd6f4";
-      };
     };
   };
 	programs.neovim =
