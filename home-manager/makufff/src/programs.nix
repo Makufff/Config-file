@@ -9,7 +9,7 @@
 		enableCompletion = true;
 		shellAliases = {
 			neofetch = "fastfetch";
-			'it-kmitl' = ''
+			"it-kmitl" = ''
 				function it-kmitl() {
 					case "$1" in
 						start)
