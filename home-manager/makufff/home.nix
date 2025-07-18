@@ -140,6 +140,7 @@
 		noto-fonts-emoji
 		nerd-fonts.hack
 		nerd-fonts.fira-code
+		nerd-fonts.jetbrains-mono
 		
 		# programming
 		poetry

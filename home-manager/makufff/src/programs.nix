@@ -33,13 +33,59 @@
   # Remove kitty terminal, add ghostty
   programs.ghostty = {
     enable = true;
-    settings = {
-      font-size = 12;
-      font-family = "FiraCode Nerd Font Mono Reg";
-      unfocused-split-opacity = 0.65;
-      # You can add more settings as needed, see https://ghostty.org/docs/config/reference
-    };
     package = pkgs.unstable.ghostty;
+    settings = {
+      font-family = "JetBrainsMono Nerd Font";
+      font-size = 16;
+      font-feature = [ "-liga" "-dlig" "-calt" ];
+      theme = "my-rainbow";
+      background-opacity = 0.85;
+      unfocused-split-opacity = 0.7;
+      padding-x = 12;
+      padding-y = 8;
+      cursor-shape = "beam";
+      cursor-color = "ffb86c";
+      bell = "off";
+      scrollback = 5000;
+      window-theme = "dark";
+      keybind = [
+        "ctrl+shift+c=copy_to_clipboard"
+        "ctrl+shift+v=paste_from_clipboard"
+        "ctrl+shift+t=new_tab"
+        "ctrl+shift+w=close_tab"
+        "ctrl+shift+n=new_window"
+        "ctrl+shift+plus=increase_font_size"
+        "ctrl+shift+minus=decrease_font_size"
+        "ctrl+shift+0=reset_font_size"
+      ];
+    };
+    themes = {
+      my-rainbow = {
+        background = "181825";
+        foreground = "ffffff";
+        cursor-color = "ffb86c";
+        palette = [
+          "0=#ff0000" # red
+          "1=#ff7f00" # orange
+          "2=#ffff00" # yellow
+          "3=#00ff00" # green
+          "4=#0000ff" # blue
+          "5=#4b0082" # indigo
+          "6=#9400d3" # violet
+          "7=#ffffff" # white
+          "8=#ff69b4" # pink
+          "9=#00ffff" # cyan
+          "10=#00ff7f" # spring green
+          "11=#ffd700" # gold
+          "12=#1e90ff" # dodger blue
+          "13=#ff1493" # deep pink
+          "14=#7cfc00" # lawn green
+          "15=#f5f5f5" # white smoke
+        ];
+        selection-background = "353749";
+        selection-foreground = "cdd6f4";
+      };
+    };
   };
 	programs.neovim =
 	let
