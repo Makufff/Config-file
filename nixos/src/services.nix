@@ -116,7 +116,7 @@
   services.hardware.openrgb.enable = true;
   services.ratbagd.enable = true;
   services.openvpn.servers.kmitl = {
-    config = builtins.readFile "/etc/nixos/assets/vpn/kmitl.ovpn";
+    config = builtins.readFile ../../assets/vpn/kmitl.ovpn;
     autoStart = false;
   };
   systemd.services.NetworkManager-wait-online.enable = false;
