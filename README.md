@@ -173,3 +173,65 @@ MIT or your preferred license.
 ---
 
 **Happy hacking with Nix!**
+
+---
+
+## 📝 Neovim (nvim) Usage
+
+This configuration provides a modern Neovim setup with LSP, fuzzy finder, file explorer, completion, snippets, Git integration, and more.
+
+### How to launch Neovim
+
+```sh
+nvim
+```
+or
+```sh
+vim
+```
+(both commands are available as aliases)
+
+### Key Features
+
+- **File Explorer:**  
+  - `<C-n>` : Toggle file explorer (Neo-tree)
+- **Fuzzy Finder (Telescope):**  
+  - `<Space>ff` : Find files  
+  - `<Space>fg` : Live grep (search in files)  
+  - `<Space>fb` : List open buffers  
+  - `<Space>fh` : Help tags
+- **Buffer Management:**  
+  - `L` : Next buffer  
+  - `H` : Previous buffer  
+  - `<Space>bd` : Delete buffer
+- **Window Navigation:**  
+  - `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>` : Move between splits
+- **Save File:**  
+  - `<C-s>` : Save (works in normal, insert, and visual mode)
+- **LSP (Language Server):**  
+  - `gd` : Go to definition  
+  - `<Space>ca` : Code action  
+  - `J` : Hover (show function info)  
+  - `<Space>gf` : Format code
+- **Terminal:**  
+  - `<C-\\>` : Toggle floating terminal
+- **Git:**  
+  - `<C-g>` : Open Neogit (Git UI)
+- **Copilot Chat:**  
+  - `<C-c>` : Toggle Copilot Chat
+
+### Customization
+
+- The Neovim config is managed via Home Manager in `home-manager/<user>/src/programs.nix`.
+- Plugins are managed declaratively via Nix.
+- To change the theme, edit the `colorscheme` line in the config.
+
+### Troubleshooting
+
+- If you see errors about missing plugins or LSP servers, make sure to run:
+  ```sh
+  home-manager switch
+  ```
+- For more info, see the comments in your `programs.nix` file.
+
+---
