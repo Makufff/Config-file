@@ -38,7 +38,7 @@
       font-family = "JetBrainsMono Nerd Font";
       font-size = 14;
       font-feature = [ "-liga" "-dlig" "-calt" ];
-      theme = "hyde";
+      theme = "catppuccin-mocha";
       background-opacity = 0.85;
       unfocused-split-opacity = 0.7;
     };
