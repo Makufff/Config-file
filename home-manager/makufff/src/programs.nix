@@ -38,7 +38,7 @@
       font-family = "JetBrainsMono Nerd Font";
       font-size = 14;
       font-feature = [ "-liga" "-dlig" "-calt" ];
-      theme = "hyde";
+      theme = "catppuccin-mocha";
       background-opacity = 0.85;
       unfocused-split-opacity = 0.7;
     };
@@ -179,6 +179,9 @@
 			{
 				plugin = vim-clang-format;
 			}
+			{
+				plugin = catppuccin-nvim;
+			}
 		];
 		extraConfig = ''
 			" set		autoindent
@@ -196,6 +199,7 @@
 			" set			listchars+=eol:↴
 			hi Pmenu		ctermfg=white ctermbg=black gui=NONE guifg=white guibg=black
 			hi PmenuSel		ctermfg=white ctermbg=blue gui=bold guifg=white guibg=purple
+			colorscheme catppuccin-mocha  " Set Catppuccin Mocha theme
 		'';
 	};
 	programs.fastfetch = {
