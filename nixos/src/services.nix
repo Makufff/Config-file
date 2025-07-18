@@ -115,7 +115,10 @@
   services.printing.enable = true;
   services.hardware.openrgb.enable = true;
   services.ratbagd.enable = true;
-  services.openvpn3.enable = true;
+  services.openvpn.servers.kmitl = {
+    config = builtins.readFile "/etc/nixos/assets/vpn/kmitl.ovpn";
+    autoStart = false;
+  };
   systemd.services.NetworkManager-wait-online.enable = false;
   systemd.services.disable-usb-wakeup = {
     description = "Disable USB wakeups (XHCI)";
