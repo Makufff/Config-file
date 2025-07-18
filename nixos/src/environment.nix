@@ -5,15 +5,9 @@
 }:
 {
 	environment.sessionVariables = {
-		EDITOR = "nvim";
-		NIXPKGS_ALLOW_UNFREE = 1;
-		XMODIFIERS = "@im=fcitx";
-		# GTK_IM_MODULE = "";
-		# QT_IM_MODULE = null;
-		# AQ_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
-		# KWIN_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
-		LIBVA_DRIVER_NAME = "iHD";
-		KWIN_DRM_USE_MODIFIERS = "0";
-		TERM = "xterm-256color";
+		LD_LIBRARY_PATH = [
+			"/run/opengl-driver/lib:/run/opengl-driver-32/lib:${config.boot.kernelPackages.nvidia_x11}"
+		];
+		EXTRA_LDFLAGS="-L/lib -L${config.boot.kernelPackages.nvidia_x11}/lib";
 	};
 }
