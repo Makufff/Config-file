@@ -9,21 +9,21 @@
 		enableCompletion = true;
 		shellAliases = {
 			neofetch = "fastfetch";
-			"it-kmitl" = ''
-				function it-kmitl() {
-					case "$1" in
-						start)
-							sudo systemctl start openvpn-kmitl ;;
-						stop)
-							sudo systemctl stop openvpn-kmitl ;;
-						status)
-							sudo systemctl status openvpn-kmitl ;;
-						*)
-							echo "Usage: it-kmitl {start|stop|status}" ;;
-					esac
-				}
-			'';
 		};
+		initExtra = ''
+			function it-kmitl() {
+				case "$1" in
+					start)
+						sudo systemctl start openvpn-kmitl ;;
+					stop)
+						sudo systemctl stop openvpn-kmitl ;;
+					status)
+						sudo systemctl status openvpn-kmitl ;;
+					*)
+						echo "Usage: it-kmitl {start|stop|status}" ;;
+				esac
+			}
+		'';
 		oh-my-zsh = {
 			enable = true;
 			plugins = [ "git" "sudo" "docker" "kubectl" ];
