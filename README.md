@@ -178,7 +178,7 @@ MIT or your preferred license.
 
 ## 📝 Neovim (nvim) Usage
 
-This configuration provides a modern Neovim setup with LSP, fuzzy finder, file explorer, completion, snippets, Git integration, and more.
+This configuration provides a modern Neovim setup with LSP, fuzzy finder, file explorer, completion, snippets, Git integration, and more. It also includes UI/UX plugins for easier usage.
 
 ### How to launch Neovim
 
@@ -191,23 +191,29 @@ vim
 ```
 (both commands are available as aliases)
 
-### Key Features
+### Key Features & Plugins
 
 - **File Explorer:**  
   - `<C-n>` : Toggle file explorer (Neo-tree)
+  - `<leader>e` : Toggle file explorer (Neo-tree)
 - **Fuzzy Finder (Telescope):**  
   - `<Space>ff` : Find files  
   - `<Space>fg` : Live grep (search in files)  
   - `<Space>fb` : List open buffers  
   - `<Space>fh` : Help tags
+  - **Faster search:** via `telescope-fzf-native`
 - **Buffer Management:**  
   - `L` : Next buffer  
   - `H` : Previous buffer  
   - `<Space>bd` : Delete buffer
 - **Window Navigation:**  
   - `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>` : Move between splits
-- **Save File:**  
+- **Save/Exit:**  
   - `<C-s>` : Save (works in normal, insert, and visual mode)
+  - `<leader>w` : Save file
+  - `<leader>q` : Quit
+- **Commenting:**  
+  - `<leader>/` : Toggle comment (with comment.nvim)
 - **LSP (Language Server):**  
   - `gd` : Go to definition  
   - `<Space>ca` : Code action  
@@ -217,8 +223,23 @@ vim
   - `<C-\\>` : Toggle floating terminal
 - **Git:**  
   - `<C-g>` : Open Neogit (Git UI)
+  - **Gitsigns:** See git changes in the sign column
 - **Copilot Chat:**  
   - `<C-c>` : Toggle Copilot Chat
+- **Dashboard:**  
+  - Shown on startup for quick access to files and actions
+- **Which-key:**  
+  - Shows available keymaps when you press `<leader>`
+- **Statusline:**  
+  - lualine.nvim for a beautiful statusline
+- **Notifications:**  
+  - nvim-notify for popup notifications
+- **Auto pairs:**  
+  - nvim-autopairs for automatic bracket/quote pairing
+- **Mouse support:**  
+  - Enabled by default
+- **Relative line numbers:**  
+  - Enabled by default
 
 ### Customization
 

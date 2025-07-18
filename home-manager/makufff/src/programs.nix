@@ -122,6 +122,9 @@
         nnoremap <C-j> <C-w>j
         nnoremap <C-k> <C-w>k
 
+        set mouse=a
+        set relativenumber
+
         lua <<EOF
         vim.g.mapleader = " "
         vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<ESC>:w<CR>", { desc = "save" })
@@ -309,6 +312,17 @@
             prompt_title = 'Search Function: ' .. current_word,
           })
         end
+
+        require("which-key").setup({})
+        require("dashboard").setup({})
+        require("nvim-autopairs").setup({})
+        require("gitsigns").setup({})
+        require("lualine").setup({})
+        require("nvim-notify").setup({})
+        vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })
+        vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit" })
+        vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "File Explorer" })
+        vim.keymap.set("n", "<leader>/", function() require('Comment.api').toggle.linewise.current() end, { desc = "Toggle comment" })
 
 EOF
       '';
