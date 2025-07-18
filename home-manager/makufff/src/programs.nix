@@ -274,15 +274,15 @@
         vim.keymap.set({"n", "i", "v"}, "<C-c>", ":CopilotChatToggle<CR>", { desc = "copilot" })
         require("copilot_cmp").setup()
 
-        " local null_ls = require("null-ls")
-        " null_ls.setup({
-        "   sources = {
-        "     null_ls.builtins.formatting.stylua,
-        "     null_ls.builtins.formatting.nixpkgs_fmt,
-        "     null_ls.builtins.completion.spell,
-        "   },
-        " })
-        " vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "format" })
+        -- local null_ls = require("null-ls")
+        -- null_ls.setup({
+        --   sources = {
+        --     null_ls.builtins.formatting.stylua,
+        --     null_ls.builtins.formatting.nixpkgs_fmt,
+        --     null_ls.builtins.completion.spell,
+        --   },
+        -- })
+        -- vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "format" })
 
         require("fzf-lua").setup()
         vim.keymap.set("n", '<C-g>', ":Neogit<CR>", { desc = "Neogit" })
