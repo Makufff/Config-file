@@ -3,13 +3,13 @@
 	...
 } : {
   security.polkit = {
-    enable = true;
+    enable = false;
   };
   security.rtkit.enable = true;
   security.pam.services.hyprlock = {
     enable = true;
   };
-  security.pam.loginLimits = [
+  se3curity.pam.loginLimits = [
     {
       domain = "*";
       type = "-";

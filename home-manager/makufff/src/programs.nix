@@ -9,7 +9,7 @@
     shellAliases = {
       neofetch = "fastfetch";
     };
-    initContent = ''
+    initExtra = ''
       function it-kmitl() {
         case "$1" in
           start)
@@ -402,7 +402,4 @@ EOF
     };
   };
 };
-
-systemd.user.services.polkit-mate-authentication-agent-1 = {
-  enable = false;
-};
+}
