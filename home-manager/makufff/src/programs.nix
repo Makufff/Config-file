@@ -97,6 +97,7 @@
         ChatGPT-nvim
         which-key-nvim
         dashboard-nvim
+        nvim-autopairs
       ];
       extraConfig = ''
         " ___ ___   ____  __  _  __ __  _____  _____  _____ 
