@@ -95,6 +95,8 @@
         copilot-cmp
         CopilotChat-nvim
         ChatGPT-nvim
+        which-key-nvim
+        dashboard-nvim
       ];
       extraConfig = ''
         " ___ ___   ____  __  _  __ __  _____  _____  _____ 
