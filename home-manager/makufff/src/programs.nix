@@ -98,6 +98,7 @@
         which-key-nvim
         dashboard-nvim
         nvim-autopairs
+        gitsigns-nvim
       ];
       extraConfig = ''
         " ___ ___   ____  __  _  __ __  _____  _____  _____ 
