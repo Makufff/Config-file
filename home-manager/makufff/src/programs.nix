@@ -100,7 +100,6 @@
         nvim-autopairs
         gitsigns-nvim
         lualine-nvim
-        -- notify-nvim
       ];
       extraConfig = ''
         " ___ ___   ____  __  _  __ __  _____  _____  _____ 
