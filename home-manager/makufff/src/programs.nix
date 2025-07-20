@@ -100,7 +100,7 @@
         nvim-autopairs
         gitsigns-nvim
         lualine-nvim
-        notify-nvim
+        -- notify-nvim
       ];
       extraConfig = ''
         " ___ ___   ____  __  _  __ __  _____  _____  _____ 
@@ -324,7 +324,6 @@
         require("nvim-autopairs").setup({})
         require("gitsigns").setup({})
         require("lualine").setup({})
-        -- require("notify-nvim").setup({})
         vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })
         vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit" })
         vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "File Explorer" })
