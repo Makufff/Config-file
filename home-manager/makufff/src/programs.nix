@@ -421,5 +421,3 @@ EOF
     };
   };
 };
-systemd.user.services.polkit-mate-authentication-agent-1 = lib.mkForce null;
-}
