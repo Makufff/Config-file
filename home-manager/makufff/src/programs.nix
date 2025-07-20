@@ -327,6 +327,7 @@
         vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit" })
         vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "File Explorer" })
         vim.keymap.set("n", "<leader>/", function() require('Comment.api').toggle.linewise.current() end, { desc = "Toggle comment" })
+        vim.keymap.set("i", "<C-Space>", function() require("cmp").complete() end, { desc = "Trigger completion" })
 
 EOF
       '';

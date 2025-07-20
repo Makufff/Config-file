@@ -214,11 +214,12 @@ vim
   - `<leader>q` : Quit
 - **Commenting:**  
   - `<leader>/` : Toggle comment (with comment.nvim)
-- **LSP (Language Server):**  
+- **LSP (Language Server) & Code Suggestion:**  
   - `gd` : Go to definition  
   - `<Space>ca` : Code action  
   - `J` : Hover (show function info)  
   - `<Space>gf` : Format code
+  - `<C-Space>` (in insert mode): **Trigger code suggestion/completion** (powered by nvim-cmp, LSP, and snippets)
 - **Terminal:**  
   - `<C-\\>` : Toggle floating terminal
 - **Git:**  
@@ -232,14 +233,18 @@ vim
   - Shows available keymaps when you press `<leader>`
 - **Statusline:**  
   - lualine.nvim for a beautiful statusline
-- **Notifications:**  
-  - nvim-notify for popup notifications
 - **Auto pairs:**  
   - nvim-autopairs for automatic bracket/quote pairing
 - **Mouse support:**  
   - Enabled by default
 - **Relative line numbers:**  
   - Enabled by default
+
+### Code Suggestion/Completion
+
+- **Trigger code suggestion:** Press `<C-Space>` (Ctrl+Space) in insert mode to open the completion menu.
+- Suggestions are powered by nvim-cmp, LSP, and snippets (luasnip, friendly-snippets).
+- Use `<CR>` (Enter) to accept a suggestion.
 
 ### Customization
 
