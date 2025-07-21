@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    uv
+    (python3.withPackages (ps: with ps; [ numpy pandas scikit-learn tqdm pulp ]))
   ];
   # Enable home-manager and git
 	programs.home-manager.enable = true;
