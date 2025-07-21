@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    miniconda3
+    uv
   ];
   # Enable home-manager and git
 	programs.home-manager.enable = true;
