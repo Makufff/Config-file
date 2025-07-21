@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    python3Full
+    miniconda
   ];
   # Enable home-manager and git
 	programs.home-manager.enable = true;
