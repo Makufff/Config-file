@@ -1,6 +1,9 @@
 { pkgs, lib, ... }:
 
 {
+  home.packages = with pkgs; [
+    python3Full
+  ];
   # Enable home-manager and git
 	programs.home-manager.enable = true;
 	programs.zsh = {
