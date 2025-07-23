@@ -20,19 +20,19 @@
 			fixvpn = "sudo resolvectl dns tun0 10.30.32.1 && sudo resolvectl domain tun0 '~.'";
 		};
 		initContent = ''
-			function it-kmitl() {
-				case "$1" in
-					start)
-						sudo systemctl start openvpn-kmitl && sudo resolvectl dns tun0 10.30.32.1 && sudo resolvectl domain tun0 '~.' ;;
-					stop)
-						sudo systemctl stop openvpn-kmitl && sudo resolvectl dns tun0 '' && sudo resolvectl domain tun0 '' ;;
-					status)
-						sudo systemctl status openvpn-kmitl ;;
-					*)
-						echo "Usage: it-kmitl {start|stop|status}" ;;
-				esac
-			}
-		'';
+function it-kmitl() {
+  case "$1" in
+    start)
+      sudo systemctl start openvpn-kmitl && sudo resolvectl dns tun0 10.30.32.1 && sudo resolvectl domain tun0 '~.' ;;
+    stop)
+      sudo systemctl stop openvpn-kmitl && sudo resolvectl dns tun0 '' && sudo resolvectl domain tun0 '' ;;
+    status)
+      sudo systemctl status openvpn-kmitl ;;
+    *)
+      echo "Usage: it-kmitl {start|stop|status}" ;;
+  esac
+}
+'';
 		oh-my-zsh = {
 			enable = true;
 			plugins = [ "git" "sudo" "docker" "kubectl" ];
