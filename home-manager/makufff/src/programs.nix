@@ -3,6 +3,9 @@
 {
   home.packages = with pkgs; [
     (python3.withPackages (ps: with ps; [ numpy pandas scikit-learn tqdm pulp ]))
+    postman
+    burpsuite
+    mininet
   ];
   # Enable home-manager and git
 	programs.home-manager.enable = true;
