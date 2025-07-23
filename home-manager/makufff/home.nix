@@ -160,6 +160,8 @@
 		# ciscoPacketTracer8
 
 		wine64
+
+		openjdk24
 	];
 
 	home.file = {
