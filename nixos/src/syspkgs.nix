@@ -79,5 +79,6 @@
 			};
 		})
 		inetutils
+		bind
 	];
 }
