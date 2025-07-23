@@ -9,7 +9,7 @@
   ];
   home.file = {
     # ".config/waybar/config".source = ../assets/config/waybar/config;
-    home.file.".config/kwalletrc".text = ''
+    ".config/kwalletrc".text = ''
       [Wallet]
       Enabled=false
       First Use=false
