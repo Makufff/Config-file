@@ -161,7 +161,7 @@
 
 		wine64
 
-		openjdk24
+		openjdk21
 	];
 
 	home.file = {
