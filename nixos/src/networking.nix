@@ -6,7 +6,7 @@
     nameservers = [ "8.8.8.8" "1.1.1.1" "10.253.192.1" "10.253.192.1"];
     networkmanager = {
       enable = true;
-      dns = "none";
+      dns = "systemd-resolved";
     };
     firewall = {
       allowedTCPPorts = [ 22 53 67 80 443 ];
