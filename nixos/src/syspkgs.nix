@@ -69,6 +69,9 @@
 		ciscoPacketTracer8
 		qt5.qtbase
 		qt5.qtnetworkauth
+		
+		jetbrains.idea-ultimate
+
 		(sddm-theme.override {
 			themeConfig.General = {
 				background = "${config.stylix.image}";
