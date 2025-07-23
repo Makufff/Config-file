@@ -19,7 +19,6 @@
   enableCompletion = true;
   shellAliases = {
     neofetch = "fastfetch";
-    fixvpn = "sudo resolvectl dns tun0 10.30.32.1 && sudo resolvectl domain tun0 '~.'";
   };
   oh-my-zsh = {
     enable = true;
