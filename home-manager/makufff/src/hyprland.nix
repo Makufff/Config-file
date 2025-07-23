@@ -155,7 +155,9 @@
 				"ALT CTRL, escape, submap, passthrough"
 				"ALT, M, submap, movewindow"
 				"ALT, R, submap, resizewindow"
-				];
+				# Screenshot selection to clipboard
+				"$mod SHIFT, S, exec, grim -g '$(slurp)' - | wl-copy"
+			];
 			bindel = [
 				", XF86AudioRaiseVolume, exec, ~/.config/hypr/scripts/volume.sh raise"
 				", XF86AudioLowerVolume, exec, ~/.config/hypr/scripts/volume.sh lower"

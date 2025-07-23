@@ -148,8 +148,8 @@
   "custom/screenshot": {
     "format": "",
     "tooltip": true,
-    "tooltip-format": "Take a screenshot (select area, copy to clipboard)",
-    "on-click": "grim -g \"$(slurp)\" - | wl-copy"
+    "tooltip-format": "Screenshot: select action",
+    "on-click": "choice=$(printf 'Selection to clipboard\nSelection to file' | wofi --show dmenu --prompt 'Screenshot'); if [ \"$choice\" = 'Selection to clipboard' ]; then grim -g \"$(slurp)\" - | wl-copy; elif [ \"$choice\" = 'Selection to file' ]; then grim -g \"$(slurp)\" ~/Pictures/screenshot-$(date +%s).png; fi"
   }
 }
 
