@@ -3,7 +3,7 @@
 } : {
   networking.resolvconf.dnsExtensionMechanism = false;
   networking = {
-    nameservers = [ "8.8.8.8" "1.1.1.1" , "10.253.192.1" , "10.253.192.1"];
+    nameservers = [ "8.8.8.8" "1.1.1.1" "10.253.192.1" "10.253.192.1"];
     networkmanager = {
       enable = true;
       dns = "none";
