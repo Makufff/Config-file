@@ -33,10 +33,6 @@
   services.desktopManager.plasma6 = {
     enable = true;
     enableQt5Integration = true;
-    excludePackages = with pkgs.kdePackages; [
-      kwalletmanager
-      kwalletd
-    ];
   };
   services.logind.extraConfig = ''
     HandlePowerKey=ignore
