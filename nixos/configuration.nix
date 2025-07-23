@@ -37,7 +37,6 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
-  virtualisation.docker.extraOptions = "--dns 8.8.8.8 --dns 1.1.1.1";
   nixpkgs = {
     # You can add overlays here
     overlays = [
