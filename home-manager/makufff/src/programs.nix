@@ -8,7 +8,7 @@
     mininet
   ];
   home.file = {
-    ".config/waybar/config".source = ./../../assets/config/waybar/config;
+    ".config/waybar/config".source = ../assets/config/waybar/config;
   };
   # Enable home-manager and git
 	programs.home-manager.enable = true;
