@@ -13,13 +13,13 @@
   # Enable home-manager and git
 	programs.home-manager.enable = true;
 	programs.zsh = {
-		enable = true;
-		enableCompletion = true;
-		shellAliases = {
-			neofetch = "fastfetch";
-			fixvpn = "sudo resolvectl dns tun0 10.30.32.1 && sudo resolvectl domain tun0 '~.'";
-		};
-		initContent = ''
+  enable = true;
+  enableCompletion = true;
+  shellAliases = {
+    neofetch = "fastfetch";
+    fixvpn = "sudo resolvectl dns tun0 10.30.32.1 && sudo resolvectl domain tun0 '~.'";
+  };
+  initContent = ''
 function it-kmitl() {
   case "$1" in
     start)
@@ -33,12 +33,12 @@ function it-kmitl() {
   esac
 }
 '';
-		oh-my-zsh = {
-			enable = true;
-			plugins = [ "git" "sudo" "docker" "kubectl" ];
-			theme = "agnoster";
-		};
-	};
+  oh-my-zsh = {
+    enable = true;
+    plugins = [ "git" "sudo" "docker" "kubectl" ];
+    theme = "agnoster";
+  };
+};
   # Remove kitty terminal, add ghostty
   programs.ghostty = {
     enable = true;
