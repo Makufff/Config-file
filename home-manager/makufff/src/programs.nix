@@ -9,6 +9,11 @@
   ];
   home.file = {
     # ".config/waybar/config".source = ../assets/config/waybar/config;
+    home.file.".config/kwalletrc".text = ''
+      [Wallet]
+      Enabled=false
+      First Use=false
+    '';
   };
   home.sessionPath = [ "$HOME/.local/bin" ];
   home.file.".local/bin/it-kmitl".source = ../it-kmitl;
