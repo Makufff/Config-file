@@ -84,7 +84,7 @@
 		slurp
 		wl-clipboard
 		flameshot
-		spectacle
+		kdePackages.spectacle
 		hyprshot
 	];
 }
