@@ -1,7 +1,7 @@
 {
   ...
 } : {
-  # networking.resolvconf.dnsExtensionMechanism = false;
+  networking.resolvconf.dnsExtensionMechanism = false;
   networking = {
 
     networkmanager = {
