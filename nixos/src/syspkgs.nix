@@ -80,5 +80,11 @@
 		})
 		inetutils
 		bind
+		grim
+		slurp
+		wl-clipboard
+		flameshot
+		spectacle
+		hyprshot
 	];
 }

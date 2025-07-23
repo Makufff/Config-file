@@ -1,33 +1,24 @@
-/*
-	Fork of https://github.com/Ruixi-rebirth/sway-dotfiles
-*/
-
 {
   "layer": "top",
   "position": "top",
   "height": 25,
-  // "margin": "4 7 0 7",
   "margin": "0 0 -5 0",
-  // "width": 1920, // Comment for dynamic width
   "modules-left": [
     "hyprland/workspaces",
     "custom/separator",
     "temperature",
     "custom/separator",
     "idle_inhibitor",
-    // "mpd",
-	// "wlr/taskbar",
-	"custom/playerctl",
-    "custom/todo",
+    "custom/playerctl",
+    "custom/todo"
   ],
   "modules-center": [
-    "clock",
+    "clock"
   ],
   "modules-right": [
-    // "network",
     "custom/separator",
     "bluetooth",
-	"custom/separator",
+    "custom/separator",
     "pulseaudio",
     "custom/separator",
     "backlight",
@@ -37,7 +28,8 @@
     "memory",
     "custom/separator",
     "battery",
-    "tray"
+    "tray",
+    "custom/screenshot"
   ],
   "custom/separator": {
     "format": "",
@@ -46,11 +38,8 @@
   },
   "hyprland/workspaces": {
     "disable-scroll": true,
-	"on-click": "activate",
-	"sort-by-number": true,
-	/*"persistent_workspaces": {
-    	"*": 4
-    }*/
+    "on-click": "activate",
+    "sort-by-number": true
   },
   "clock": {
     "format": " <span foreground='#7dcfff'>󰃭</span> {:%d %B %Y - %H:%M}  ",
@@ -58,31 +47,14 @@
     "tooltip": true,
     "tooltip-format": "{:%A, %d %B %Y}\n<tt>{calendar}</tt>"
   },
-  /*"mpd": {
-    "max-length": 30,
-    "format": "<span foreground='#bb9af7'></span> {title}",
-    "format-paused": " <span style='italic'>{title}</span>",
-	"format-stopped":"<span foreground='#bb9af7'></span>",
-    "format-disconnected": "<span foreground='#f25e5e'></span>",
-    "on-click": "mpc --quiet toggle",
-    "on-click-right": "mpc ls | mpc add",
-    "on-click-middle": "mpv",
-    "on-scroll-up": "mpc --quiet prev",
-    "on-scroll-down": "mpc --quiet next",
-    "smooth-scrolling-threshold":5,
-    "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})"
-  },*/
-  /*"wlr/taskbar": {
-  	
-  },*/
   "custom/playerctl": {
-	"format": " ~{}",
-	"interval": 5,
-	"exec": "playerctl metadata xesam:title | sed 's/&/\\&amp;/g; s/</\\&lt;/g; s/>/\\&gt;/g; s/\"/\\&quot;/g; s/'\"'\"'/\\&#39;/g'",
-	"max-length": 22,
-	"on-click": "playerctl play-pause",
-	"on-scroll-up": "~/.config/hypr/scripts/playerctl.sh raise",
-	"on-scroll-down": "~/.config/hypr/scripts/playerctl.sh lower"
+    "format": " ~{}",
+    "interval": 5,
+    "exec": "playerctl metadata xesam:title | sed 's/&/\\&amp;/g; s/</\\&lt;/g; s/>/\\&gt;/g; s/\"/\\&quot;/g; s/'\"'\"'/\\&#39;/g'",
+    "max-length": 22,
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "~/.config/hypr/scripts/playerctl.sh raise",
+    "on-scroll-down": "~/.config/hypr/scripts/playerctl.sh lower"
   },
   "disk": {
     "interval": 18000,
@@ -112,7 +84,7 @@
   },
   "tray": {
     "icon-size": 15,
-    "spacing": 5,
+    "spacing": 5
   },
   "network": {
     "interval": 1,
@@ -123,23 +95,20 @@
     "format": "<span foreground='#FF6261'>󰖪</span> Disabled",
     "format-alt": "<span foreground='#61AF1F'></span> {ipaddr} - {ifname}",
     "on-click-right": "rofi-wifi-menu",
-	"tooltip-format": "Upload: {bandwidthUpBytes}\nDownload: {bandwidthDownBytes}"
+    "tooltip-format": "Upload: {bandwidthUpBytes}\nDownload: {bandwidthDownBytes}"
   },
   "bluetooth": {
-	"format": "󰂲 {status}",
-  	"format-connected": " {controller_alias}",
-  	"format-connected-battery": " {device_battery_percentage}%",
-  	"tooltip-format": "{controller_alias}\t{controller_address}\n{num_connections} connected",
-  	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n{num_connections} connected\n\n{device_enumerate}",
-  	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-  	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-	"on-click": "/home/arch/.config/waybar/scripts/bt_toggle.sh",
-	"on-click-right": "sleep 0.1 && rofi-bluetooth"
+    "format": "󰂲 {status}",
+    "format-connected": " {controller_alias}",
+    "format-connected-battery": " {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "/home/arch/.config/waybar/scripts/bt_toggle.sh",
+    "on-click-right": "sleep 0.1 && rofi-bluetooth"
   },
   "backlight": {
-    //"device": "intel_backlight",
-    //"on-scroll-up": "light -A 5",
-    //"on-scroll-down": "light -U 5",
     "tooltip": false,
     "format": "<span foreground='#b48ead'>{icon}</span> {percent}%",
     "format-icons": ["󰃞","󰃝","󰃟","󰃠"]
@@ -152,16 +121,15 @@
       "default": ["", "", ""]
     },
     "states": {
-      "warning": 85,
+      "warning": 85
     },
     "scroll-step": 1,
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-	"on-click-right": "pactl set-default-sink $(pactl list short sinks | awk '{print $2}' | rofi -dmenu)",
+    "on-click-right": "pactl set-default-sink $(pactl list short sinks | awk '{print $2}' | rofi -dmenu)",
     "on-click-middle": "pactl set-source-mute 0 toggle",
     "format-source": "<span foreground='#00dfdf'></span> ",
     "format-source-muted": "<span foreground='#afafaf'></span> ",
-
-	"tooltip": false,
+    "tooltip": false
   },
   "temperature": {
     "hwmon-path": "/sys/devices/virtual/thermal/thermal_zone3/temp",
@@ -169,7 +137,7 @@
     "tooltip": false
   },
   "idle_inhibitor": {
-	"what": "handle-lid-switch",
+    "what": "handle-lid-switch",
     "tooltip": false,
     "format": " {icon} ",
     "format-icons": {
@@ -177,5 +145,11 @@
       "deactivated": "<span foreground='#ffffdd'>󰤄</span>"
     }
   },
+  "custom/screenshot": {
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "Take a screenshot (select area, copy to clipboard)",
+    "on-click": "grim -g \"$(slurp)\" - | wl-copy"
+  }
 }
 
