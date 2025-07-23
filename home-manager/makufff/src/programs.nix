@@ -9,9 +9,9 @@
   ];
   home.file = {
     # ".config/waybar/config".source = ../assets/config/waybar/config;
-    home.sessionPath = [ "$HOME/.local/bin" ];
-    home.file.".local/bin/it-kmitl".source = ./it-kmitl;
   };
+  home.sessionPath = [ "$HOME/.local/bin" ];
+  home.file.".local/bin/it-kmitl".source = ./it-kmitl;
   # Enable home-manager and git
 	programs.home-manager.enable = true;
 	programs.zsh = {
