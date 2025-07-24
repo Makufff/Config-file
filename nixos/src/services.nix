@@ -119,6 +119,13 @@
     config = builtins.readFile ../../assets/vpn/kmitl.ovpn;
     autoStart = false;
   };
+  services.softether = {
+    enable = true;
+    # Optionally set a password for the admin user:
+    # serverPassword = "your-strong-password";
+    # Optionally set a custom data directory:
+    # dataDir = "/var/lib/softether";
+  };
   systemd.services.NetworkManager-wait-online.enable = false;
   systemd.services.disable-usb-wakeup = {
     description = "Disable USB wakeups (XHCI)";

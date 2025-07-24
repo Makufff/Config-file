@@ -86,6 +86,5 @@
 		flameshot
 		kdePackages.spectacle
 		hyprshot
-		softether
 	];
 }
