@@ -86,6 +86,6 @@
 		flameshot
 		kdePackages.spectacle
 		hyprshot
-		cloudflare-warp
+		softether
 	];
 }
