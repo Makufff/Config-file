@@ -86,6 +86,6 @@
 		flameshot
 		kdePackages.spectacle
 		hyprshot
-		warp-go
+		unstable.warp-go
 	];
 }
