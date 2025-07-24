@@ -163,7 +163,7 @@
 
 		openjdk21 
 
-		cloudflare-warp
+		cloudflared
 	];
 
 	home.file = {
