@@ -162,6 +162,8 @@
 		wine64
 
 		openjdk21 
+
+		cloudflare-warp
 	];
 
 	home.file = {
