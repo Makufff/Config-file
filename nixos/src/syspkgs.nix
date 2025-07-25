@@ -74,6 +74,8 @@
 
 		conda
 
+		mininet
+
 		(sddm-theme.override {
 			themeConfig.General = {
 				background = "${config.stylix.image}";
