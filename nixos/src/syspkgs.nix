@@ -72,6 +72,8 @@
 		
 		jetbrains.idea-ultimate
 
+		conda
+
 		(sddm-theme.override {
 			themeConfig.General = {
 				background = "${config.stylix.image}";
