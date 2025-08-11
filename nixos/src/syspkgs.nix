@@ -76,6 +76,8 @@
 
 		mininet
 
+		zoom-us
+		
 		(sddm-theme.override {
 			themeConfig.General = {
 				background = "${config.stylix.image}";
