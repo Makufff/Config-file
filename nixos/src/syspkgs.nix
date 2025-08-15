@@ -92,5 +92,6 @@
 		flameshot
 		kdePackages.spectacle
 		hyprshot
+		ventoy
 	];
 }
